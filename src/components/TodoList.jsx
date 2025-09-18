@@ -75,7 +75,7 @@ const TodoList = ({ todos, setTodos }) => {
                     type="checkbox"
                     checked={todo.completed}
                     onChange={() => toggleComplete(todo.id)}
-                    className="cursor-pointer"
+                    className="cursor-pointer accent-green-300"
                   />
                   <span
                     className={todo.completed ? "line-through text-gray-400" : ""}

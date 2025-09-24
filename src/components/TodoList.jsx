@@ -48,7 +48,7 @@ const TodoList = ({ todos, setTodos }) => {
 
   return (
     <div className="max-w-[540px] w-[90%] mx-auto bg-white rounded-[5px] mt-4 lg:mt-6 border-2">
-      <div className="h-[440px] overflow-auto">
+      <div className="h-[440px] overflow-auto dark:bg-[#25273d] dark:text-white text-black">
         {todos.length === 0 ? (
           <div className="h-full flex items-center justify-center">
             <p className="text-gray-400 italic">
@@ -59,7 +59,7 @@ const TodoList = ({ todos, setTodos }) => {
           todos.map((todo) => (
             <div
               key={todo.id}
-              className="flex flex-row justify-between border-b border-[#E3E4F1] px-5 py-4 lg:px-6 lg:py-5 w-full"
+              className="flex flex-row justify-between border-b border-[#E3E4F1] dark:border-[#38394a] px-5 py-4 lg:px-6 lg:py-5 w-full"
             >
               {targetedId === todo.id ? (
                 <input
@@ -126,7 +126,7 @@ const TodoList = ({ todos, setTodos }) => {
         )}
       </div>
 
-      <div className="flex justify-between px-5 py-4 lg:px-6 lg:py-5">
+      <div className="flex justify-between px-5 py-4 lg:px-6 lg:py-5 dark:bg-[#25273d] dark:text-white text-black border-t dark:border-[#38394a]">
         <p>Items left {todos.filter((t) => !t.completed).length}</p>
         <button onClick={() => setTodos([])} className="cursor-pointer">
           Clear all

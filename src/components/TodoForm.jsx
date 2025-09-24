@@ -3,9 +3,8 @@ import moonIcon from "../assets/icon-moon.svg"
 import sunIcon from "../assets/icon-sun.svg"
 import { v4 as uuidv4 } from 'uuid';
 
-const TodoForm = ({ setTodos }) => {
+const TodoForm = ({ setTodos, handleTheme, isDarkMode }) => {
     const [todo, setTodo] = useState("")
-    const [theme, setTheme] = useState("light")
 
     function toggleTheme() {
         setTheme(prev => (prev === "light" ? "dark" : "light"))
@@ -32,15 +31,16 @@ const TodoForm = ({ setTodos }) => {
             <div className="flex justify-between items-center">
                 <h1 className="uppercase text-white font-bold text-3xl lg:text-5xl tracking-[15px]">Todo</h1>
                 <img
-                    src={theme === "dark" ? sunIcon : moonIcon}
-                    onClick={toggleTheme}
+                    src={isDarkMode ? sunIcon : moonIcon}
+                    onClick={handleTheme}
                     className="cursor-pointer w-6 h-6"
                     alt="Toggle theme"
                 />
             </div>
-            <form onSubmit={handleSubmit} className="mt-4 lg:mt-10">
-                <input value={todo} onChange={(e) => setTodo(e.target.value)} className="px-5 py-4 lg:px-6 lg:py-5 bg-white rounded-[5px] w-full outline-none" type="text" placeholder="Create a new todo…" />
-            </form>
+                <form onSubmit={handleSubmit} className="mt-4 lg:mt-10 dark:bg-[#25273d]">
+                    <input value={todo} onChange={(e) => setTodo(e.target.value)} className="px-5 py-4 lg:px-6 lg:py-5 bg-white rounded-[5px] w-full outline-none dark:bg-[#25273d] dark:text-white text-black" type="text" placeholder="Create a new todo…" />
+                </form>
+            
         </div>
     )
 }

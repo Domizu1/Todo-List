@@ -5,10 +5,16 @@ import TodoList from "./components/TodoList.jsx"
 
 const App = () => {
   const [todos, setTodos] = useState([])
+  const [isDarkMode, setIsDarkMode] = useState(false)
 
-  return <div className="h-screen">
-    <BgImage />
-    <TodoForm setTodos={setTodos} />
+  function handleTheme(){
+    setIsDarkMode(prev => !prev)
+    document.documentElement.classList.toggle('dark')
+  }
+
+  return <div className="h-screen dark:bg-[#171823]">
+    <BgImage isDarkMode={isDarkMode}/>
+    <TodoForm setTodos={setTodos} handleTheme={handleTheme} isDarkMode={isDarkMode}/>
     <TodoList todos={todos} setTodos={setTodos} />
   </div>
 }
